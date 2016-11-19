@@ -1,0 +1,134 @@
+<!--  written by:   Yue Gu     -->
+<!--  assisted by:	Rui Zhu    -->
+<!--  debugged by:  Xingyi Fan -->
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title></title>
+<script type="text/javascript" src="js/modernizr.custom.46884.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/slicebox.css" />
+		<link rel="stylesheet" type="text/css" href="css/custom.css" />
+</head>
+
+
+<body>
+<div class="container">
+			
+		
+			<div class="wrapper">
+
+				<ul id="sb-slider" class="sb-slider">
+					<li>
+						<img src="images/img1.jpg" alt="image1"/>
+						<div class="sb-description">
+							<h3>Group 14</h3>
+						</div>
+					</li>
+					<li>
+						<img src="images/img3.jpg" alt="image2"/>
+						<div class="sb-description">
+							<h3>Jiaqi Guo</h3>
+						</div>
+					</li>
+					<li>
+						<img src="images/img6.jpg" alt="image1"/>
+						<div class="sb-description">
+							<h3>Rui Zhu</h3>
+						</div>
+					</li>
+					<li>
+						<img src="images/img2.jpg" alt="image1"/>
+						<div class="sb-description">
+							<h3>Xingyi Fan</h3>
+						</div>
+					</li>
+					<li>
+						<img src="images/img5.jpg" alt="image1"/></a>
+						<div class="sb-description">
+							<h3>Xinyu Li</h3>
+						</div>
+					</li>
+					<li>
+						<img src="images/img4.jpg" alt="image1"/></a>
+						<div class="sb-description">
+							<h3>Yue Gu</h3>
+						</div>
+					</li>
+					<li>
+						<img src="images/img7.jpg" alt="image1"/>
+						<div class="sb-description">
+							<h3>Achievements</h3>
+						</div>
+					</li>
+				</ul>
+
+				<div id="shadow" class="shadow"></div>
+
+				<div id="nav-arrows" class="nav-arrows">
+					<a href="#">Next</a>
+					<a href="#">Previous</a>
+				</div>
+
+			</div><!-- /wrapper -->
+			<p class="info"><strong>Group Manifesto : </strong> You will never walk alone !</p>
+
+		</div>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.slicebox.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				
+				var Page = (function() {
+
+					var $navArrows = $( '#nav-arrows' ).hide(),
+						$shadow = $( '#shadow' ).hide(),
+						slicebox = $( '#sb-slider' ).slicebox( {
+							onReady : function() {
+
+								$navArrows.show();
+								$shadow.show();
+
+							},
+							orientation : 'r',
+							cuboidsRandom : true,
+							disperseFactor : 30
+						} ),
+						
+						init = function() {
+
+							initEvents();
+							
+						},
+						initEvents = function() {
+
+							// add navigation events
+							$navArrows.children( ':first' ).on( 'click', function() {
+
+								slicebox.next();
+								return false;
+
+							} );
+
+							$navArrows.children( ':last' ).on( 'click', function() {
+								
+								slicebox.previous();
+								return false;
+
+							} );
+
+						};
+
+						return { init : init };
+
+				})();
+
+				Page.init();
+
+			});
+		</script>
+</body>
+</html>
